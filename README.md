@@ -1,6 +1,6 @@
 # vsc-scaffolding README
 
-The is an vscode extansion. 
+The is an vscode extension. 
 
 The project main goal is the create an easy way the create scaffodling templates.
 

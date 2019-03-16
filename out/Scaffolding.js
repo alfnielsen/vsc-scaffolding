@@ -127,7 +127,7 @@ class Scaffolding {
                 const match = file.fsPath.match(/([\w\-]+)\.vsc\-template\.js$/);
                 if (match) {
                     const name = match[1];
-                    templates.push({ name, path: file.fsPath });
+                    templates.push({ name, name_lower: name.toLocaleLowerCase(), path: file.fsPath });
                 }
             });
             if (templates.length === 0) {
@@ -141,7 +141,8 @@ class Scaffolding {
             if (!templateName) {
                 return;
             }
-            const selectedTemplate = templates.find(t => t.name === templateName);
+            const templateName_lower = templateName.toLocaleLowerCase();
+            const selectedTemplate = templates.find(t => t.name_lower === templateName_lower);
             if (!selectedTemplate) {
                 vscode.window.showErrorMessage(`NOTE: vsc-scaffolding didn't find your template '${templateName}'. The template must be in a file called '${templateName}.vsc-template.js'`);
                 return;

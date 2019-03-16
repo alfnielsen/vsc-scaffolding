@@ -20,9 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand(
 		'extension.vscScaffolding',
 		(uri?: vscode.Uri, uris?: vscode.Uri[]) => {
-			scaffolding.createTemplate(uri).then(() => {
-				vscode.window.showInformationMessage('Template output was created.')
-			})
+			scaffolding.createTemplate(uri)
 		}
 	)
 

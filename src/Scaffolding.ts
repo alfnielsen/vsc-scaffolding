@@ -165,8 +165,10 @@ export default class Scaffolding {
 		// await template.userInputs.forEach(async (item: UserInput) => { })
 
 		// Recursive create files and folder
-		template.template.forEach(async item => {
+		await template.template.forEach(async item => {
 			await this.handleTempItem(newPath, userInputs, item)
 		})
+		
+		vscode.window.showInformationMessage('Template output was created.')
 	}
 }

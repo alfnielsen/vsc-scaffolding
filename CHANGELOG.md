@@ -2,6 +2,7 @@
 
 ## 0.0.2
 Fix context menu, so the template is placed under selected fodler instead of beside it!
+Move 'done' message so it dont show up on cancel.
 
 ## 0.0.1
 

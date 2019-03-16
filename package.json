@@ -2,6 +2,12 @@
 	"name": "vsc-scaffolding",
 	"displayName": "vsc-scaffolding",
 	"description": "Full scaffolding with your own templates.",
+	"publisher": "alfnielsen",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alfnielsen/vsc-scaffolding"
+	},
+	"homepage": "https://github.com/alfnielsen/vsc-scaffolding",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.32.0"
@@ -14,6 +20,15 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "extension.vscScaffolding",
+					"group": "1_modification",
+					"when": "explorerViewletVisible"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "extension.vscScaffolding",

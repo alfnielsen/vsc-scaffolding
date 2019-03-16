@@ -90,10 +90,32 @@ class Scaffolding {
     /**
      * The main method that runs the create template output
      * @todo Code split!!! :-P
-     * @param progress vsc progress (Not really use at the moment!)
      */
-    createTemplate(progress) {
+    createTemplate(uri) {
         return __awaiter(this, void 0, void 0, function* () {
+            const currentPath = this.getCurrentPath();
+            const currenDir = this.getDirFromPath(currentPath);
+            let newPath;
+            if (uri) {
+                // From context menu in vsc
+                newPath = this.getDirFromPath(uri.fsPath);
+            }
+            else {
+                // User Propmt
+                const promtNewPath = yield vscode.window.showInputBox({
+                    prompt: 'Directory for the template output:',
+                    value: currenDir
+                });
+                if (!promtNewPath) {
+                    return;
+                }
+                newPath = promtNewPath;
+            }
+            const isDir = this.isDir(newPath);
+            if (!isDir) {
+                vscode.window.showErrorMessage('Template output can only be create in existing folder!');
+                return;
+            }
             /**
              * Collect all project templates:
              * This scans all files for .vsc-template.js to make a list of templates
@@ -112,9 +134,6 @@ class Scaffolding {
                 vscode.window.showErrorMessage(`NOTE: vsc-scaffolding didn't find any template files. A template file name can be place anywhere in the project, but it must end with '.vsc-template.js'`);
                 return;
             }
-            //Get the current path. Use to create base for user input on where they will create the template.
-            const currentPath = this.getCurrentPath();
-            const currenDir = this.getDirFromPath(currentPath);
             const templateName = yield vscode.window.showInputBox({
                 prompt: 'What template will you use? (Name of template)',
                 value: templates[0].name
@@ -132,18 +151,6 @@ class Scaffolding {
             const templateCompiledFunction = eval(templateFile);
             const template = templateCompiledFunction();
             //template: Template,
-            const newPath = yield vscode.window.showInputBox({
-                prompt: 'Directory for the template output:',
-                value: currenDir
-            });
-            if (!newPath) {
-                return;
-            }
-            const isDir = this.isDir(newPath);
-            if (!isDir) {
-                vscode.window.showErrorMessage('Template output can only be create in existing folder!');
-                return;
-            }
             const userInputs = {};
             // Get User Inputs (For some unknown reason .foreach dont work... So we use normal for loop)
             for (let i = 0; i < template.userInputs.length; i++) {

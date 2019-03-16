@@ -1,9 +1,9 @@
 // The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode'
 
 import Scaffolding from './Scaffolding'
 
+// Import the module and reference it with the alias vscode in your code below
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -17,11 +17,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const scaffolding = new Scaffolding()
 
-	let disposable = vscode.commands.registerCommand('extension.vscScaffolding', () => {
-		scaffolding.createTemplate().then(() => {
-			vscode.window.showInformationMessage('Template output was created.')
-		})
-	})
+	let disposable = vscode.commands.registerCommand(
+		'extension.vscScaffolding',
+		(uri?: vscode.Uri, uris?: vscode.Uri[]) => {
+			scaffolding.createTemplate(uri).then(() => {
+				vscode.window.showInformationMessage('Template output was created.')
+			})
+		}
+	)
 
 	context.subscriptions.push(disposable)
 }

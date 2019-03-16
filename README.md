@@ -6,11 +6,17 @@ The project main goal is the create an easy way the create scaffolding templates
 
 ## Usage
 
-1. Run VSC Commands (ctrl+shift-p or ctrl+cmd-p)
-2. Run 'vsc-template'
-3. Write where the template should create its output (Folder)
-4. Write the template name to use (It will scan and find all template files named {name}.vsc-template.js)
-5. Optional if the template has UserInputs, then fill them out.
+First add or create your templates, then:
+
+
+1. Right-click folder/file
+2. Select 'vsc Scaffolding'
+3. Write the template name.
+4. Optional: if the template has UserInputs, then fill them out.
+
+
+![Use Extension](images/vsc-scaffolding.gif)
+
 
 ## Features
 

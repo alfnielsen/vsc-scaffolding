@@ -1,10 +1,9 @@
-export type UserInput = {
-	title: string
-	argumentName: string
-	defaultValue: string
+export type Template = {
+	userInputs: UserInput[]
+	template: TemplateItem[]
 }
-export type UserInputs = { [key: string]: string }
-export type StringDelegate = string | ((inputs: UserInputs) => void)
+
+export type TemplateItem = TemplateFolder | TemplateFile
 
 export type TemplateFolder = {
 	type: 'folder'
@@ -17,9 +16,10 @@ export type TemplateFile = {
 	content: StringDelegate
 }
 
-export type TemplateItem = TemplateFolder | TemplateFile
-
-export type Template = {
-	userInputs: UserInput[]
-	template: TemplateItem[]
+export type UserInput = {
+	title: string
+	argumentName: string
+	defaultValue: string
 }
+export type UserInputs = { [key: string]: string }
+export type StringDelegate = string | ((inputs: UserInputs) => void)

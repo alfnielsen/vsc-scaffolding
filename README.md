@@ -2,7 +2,7 @@
 
 The is an vscode extension. 
 
-The project main goal is the create an easy way the create scaffodling templates.
+The project main goal is the create an easy way the create scaffolding templates.
 
 ## Usage
 

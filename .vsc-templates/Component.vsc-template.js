@@ -1,5 +1,6 @@
 (function Template() {
 	const camelize = str => str.replace(/\W+(.)/g, (_match, chr) => chr.toUpperCase())
+	const dash = str => str[0].toLowerCase()+str.substr(1).replace(/([A-Z])/g, ([letter]) => `-${letter.toLowerCase()}`)
 	return {
 		userInputs: [
 			{
@@ -19,7 +20,7 @@
 						content: inputs => `import React from 'react'
 
 const ${camelize(inputs.name)} = ({ value }) => (
-	<div class='${camelize(inputs.name)}_root'>{value}</div>
+	<div class='${dash(inputs.name)}'>{value}</div>
 )
 
 export default ${camelize(inputs.name)}
@@ -29,7 +30,7 @@ export default ${camelize(inputs.name)}
 						type: 'file',
 						name: inputs => `${camelize(inputs.name)}.css`,
 						content: inputs => `
-.${camelize(inputs.name)}_root {
+.${dash(inputs.name)} {
 	display: block;
 }
 `

@@ -17,7 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const scaffolding = new Scaffolding()
 
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
+	let disposable = vscode.commands.registerCommand('extension.vscScaffolding', () => {
 		scaffolding.createTemplate().then(() => {
 			vscode.window.showInformationMessage('Template output was created.')
 		})

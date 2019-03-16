@@ -14,7 +14,7 @@ function activate(context) {
     // Now provide the implementation of the command with registerCommand
     // The commandId parameter must match the command field in package.json
     const scaffolding = new Scaffolding_1.default();
-    let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
+    let disposable = vscode.commands.registerCommand('extension.vscScaffolding', () => {
         scaffolding.createTemplate().then(() => {
             vscode.window.showInformationMessage('Template output was created.');
         });

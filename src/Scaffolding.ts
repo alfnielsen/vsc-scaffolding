@@ -87,7 +87,10 @@ export default class Scaffolding {
 		let newPath: string
 		if (uri) {
 			// From context menu in vsc
-			newPath = this.getDirFromPath(uri.fsPath)
+			newPath = uri.fsPath
+			if (!this.isDir(newPath)){
+				newPath = this.getDirFromPath(uri.fsPath)
+			}
 		} else {
 			// User Propmt
 			const promtNewPath = await vscode.window.showInputBox({

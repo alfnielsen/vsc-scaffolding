@@ -123,7 +123,7 @@ No know issues
 ## Release Notes
 
 
-### 0.1.0
+### 0.0.3
 
 Copy code from another test to create vsc extansions.
 The code works as described.

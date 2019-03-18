@@ -29,7 +29,7 @@ Create a file that ends with .vsc-template.js
 
 > {NAME}.vsc-template.js
 
-The js template file must contain a single parentheses wrap method,
+The js template file must contain a single parentheses wraped method,
 and it cannot use any extarnel js ref like import and require.
 
 > I personally think is a good idea to create a .vsc-template folder in the root of your project and place all templates there.
@@ -70,7 +70,7 @@ export default ${camelize(inputs.name)}
 
 # The template structure:
 
-This is the actual typescript defined stucture
+This is the actual typescript defined structure
 
 ```
 export type Template = {

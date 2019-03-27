@@ -1,4 +1,4 @@
-# vsc-scaffolding README
+# vsc-scaffolding
 
 The is an vscode extension.
 
@@ -36,7 +36,7 @@ and it cannot use any extarnel js ref like import and require.
 
 **EX: Component.vsc-template.js**
 
-```
+```javascript
 (function Template(){
   const camelize = str => str.replace(/\W+(.)/g, (_match, chr) => chr.toUpperCase())
   return {
@@ -72,7 +72,7 @@ export default ${camelize(inputs.name)}
 
 This is the actual typescript defined structure
 
-```
+```typescript
 export type Template = {
   userInputs: UserInput[]
   template: TemplateItem[]
@@ -104,11 +104,7 @@ export type StringDelegate = string | ((inputs: UserInputs) => void)
 
 ## Requirements
 
-This extension internally use the following node_modules:
-
-> vscode
-> fs-extra
-> path
+This extension is build with [vsc-base](http://vsc-base.org)
 
 ## Extension Settings
 
@@ -118,6 +114,15 @@ There are no setting in this version.
 
 No know issues
 
-## Related Projects
+## Links and related projects
 
-> vsc-script [ https://github.com/alfnielsen/vsc-script ]
+> vsc-scaffolding: [vscode-extension](https://marketplace.visualstudio.com/items?itemName=alfnielsen.vsc-scafolding) | [source-code](https://github.com/alfnielsen/vsc-scaffolding)
+
+> vsc-base: [npm-module](https://www.npmjs.com/package/vsc-base) | [source-code](https://github.com/alfnielsen/vsc-base)
+
+> vsc-base.org: [documentation](http://vsc-base.org) | [source-code](https://github.com/alfnielsen/vsc-base.org)
+
+> vsc-script: [vscode-extension](https://marketplace.visualstudio.com/items?itemName=alfnielsen.vsc-script) | [source-code](https://github.com/alfnielsen/vsc-script)
+
+> vsc-move: [vscode-extension](https://marketplace.visualstudio.com/items?itemName=alfnielsen.vsc-move) | [source-code](https://github.com/alfnielsen/vsc-move)
+

@@ -3,6 +3,7 @@
    "displayName": "vsc-scaffolding",
    "description": "Full scaffolding with your own templates.",
    "publisher": "alfnielsen",
+   "icon": "vsc-base-icon.png",
    "repository": {
       "type": "git",
       "url": "https://github.com/alfnielsen/vsc-scaffolding"
@@ -53,6 +54,6 @@
    },
    "dependencies": {
       "fs-extra": "^7.0.1",
-      "vsc-base": "0.0.6"
+      "vsc-base": "^0.1.1"
    }
 }

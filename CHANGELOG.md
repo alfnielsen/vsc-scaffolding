@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.0.6
+
+Update vsc-base to version 0.1.1.
+
+Fix scaffolding so it work when click on a file.
+Now uses dropdown to select template.
+
 ## 0.0.4 + 0.0.5
 
 Update readme
@@ -23,4 +30,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-- Initial release
+-  Initial release

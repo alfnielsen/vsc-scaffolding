@@ -9,7 +9,7 @@
       "url": "https://github.com/alfnielsen/vsc-scaffolding"
    },
    "homepage": "https://github.com/alfnielsen/vsc-scaffolding",
-   "version": "0.0.7",
+   "version": "0.0.8",
    "engines": {
       "vscode": "^1.32.0"
    },
@@ -45,15 +45,11 @@
       "test": "npm run compile && node ./node_modules/vscode/bin/test"
    },
    "devDependencies": {
-      "@types/fs-extra": "^5.0.5",
-      "@types/mocha": "^2.2.42",
-      "@types/node": "^10.12.21",
       "tslint": "^5.12.1",
       "typescript": "^3.3.1",
-      "vscode": "^1.1.28"
+      "vscode": "^1.1.33"
    },
    "dependencies": {
-      "fs-extra": "^7.0.1",
-      "vsc-base": "^0.1.1"
+      "vsc-base": "^0.8.5"
    }
 }

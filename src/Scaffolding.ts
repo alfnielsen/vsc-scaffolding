@@ -5,7 +5,6 @@ import * as vscode from 'vscode'
 export default class Scaffolding {
    /**
     * The main method that runs the create template output
-    * @todo Code split!!! :-P
     */
    async createTemplate(uri?: vscode.Uri) {
       if (!uri) {

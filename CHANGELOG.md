@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.8
+
+Removed unused dependencies. (dev dependensies)
+This update is primary done doe to vulnerability alert from github:
+https://nvd.nist.gov/vuln/detail/CVE-2018-20834
+
 ## 0.0.6 + 0.0.7
 
 Update vsc-base to version 0.1.1.

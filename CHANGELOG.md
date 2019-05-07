@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.0
+
+Add typescript templates. {name.vsc-templte.ts}
+
 ## 0.0.8
 
 Removed unused dependencies. (dev dependensies)

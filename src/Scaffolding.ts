@@ -25,14 +25,16 @@ export default class Scaffolding {
        * This scans all files for .vsc-template.js to make a list of templates
        * @todo Maybe move this code, so it do not scan all file every times it run
        */
-      const templatefiles = await vsc.findFilePaths('**/*.vsc-template.js')
-      const templates: { name: string; name_lower: string; path: string }[] = []
+      const templatefiles = await vsc.findFilePaths('**/*.vsc-template.{js,ts}')
+      const templates: { name: string; name_lower: string; type: string, path: string }[] = []
       templatefiles.forEach(filePath => {
-         const match = filePath.match(/([\w\-]+)\.vsc\-template\.js$/)
+         const match = filePath.match(/([\w\-]+)\.vsc\-template\.([jt]s)$/)
          if (match) {
             const name = match[1]
+            const type = match[2]
             templates.push({
                name,
+               type,
                name_lower: name.toLocaleLowerCase(),
                path: filePath
             })
@@ -61,10 +63,18 @@ export default class Scaffolding {
          return
       }
       //
-      const templateFile = await vsc.getFileContent(selectedTemplate.path)
-      const templateCompiledFunction = eval(templateFile)
-      const template: vsc.vscTemplate = templateCompiledFunction()
       //template: Template,
+      let template: vsc.vscTemplate
+      if (selectedTemplate.type === 'js') {
+         template = await getJsTemplate(selectedTemplate.path)
+      } else if (selectedTemplate.type === 'ts') {
+         template = await getTsTemplate(selectedTemplate.path)
+         if (!template) {
+            return
+         }
+      } else {
+         return;
+      }
 
       const userInputs: { [key: string]: string } = {}
 
@@ -86,4 +96,28 @@ export default class Scaffolding {
 
       vscode.window.showInformationMessage('Template output was created.')
    }
+}
+
+
+const getJsTemplate = async (path: string) => {
+   const templateFile = await vsc.getFileContent(path)
+   const templateCompiledFunction = eval(templateFile)
+   const template: vsc.vscTemplate = templateCompiledFunction()
+   return template;
+}
+const getTsTemplate = async (path: string) => {
+   // load script and tranpile it
+   try {
+      let scriptFileExport
+      scriptFileExport = await vsc.tsLoadModule(path)
+      const varifiedModule = vsc.varifyModuleMethods(scriptFileExport, ['Template'])
+      if (!varifiedModule) {
+         return undefined
+      }
+      const template = varifiedModule.Template(path)
+      return template
+   } catch (e) {
+      vsc.showErrorMessage(e);
+   }
+   return undefined
 }

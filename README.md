@@ -28,14 +28,16 @@ Create folders and files described in a single js template file.
 Create a file that ends with .vsc-template.js or .vsc-template.ts
 
 > {NAME}.vsc-template.js (javascript)
+
 > {NAME}.vsc-template.ts (typescript)
 
 A js template file must contain a single parentheses wraped method,
 and it cannot use any extarnel js ref like import and require.
 
 A ts templte file must contain a export function named Template.
-You can use (vsc-base)[http://vsc-base.org] in your ts template file.
+You can use [vsc-base](http://vsc-base.org) in your ts template file.
 (And no other library! )
+
 You dont need to use vsc-base (and if you use it you need to install it as dev dependency)
 
 > I personally think is a good idea to create a .vsc-template folder in the root of your project and place all templates there.
@@ -43,7 +45,7 @@ You dont need to use vsc-base (and if you use it you need to install it as dev d
 **EX: Component.vsc-template.js**
 
 ```js
-;(function Template() {
+(function Template() {
    const camelize = str =>
       str.replace(/\W+(.)/g, (_match, chr) => chr.toUpperCase())
    return {

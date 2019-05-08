@@ -4,4 +4,4 @@
 
 > vsc-base.org: [documentation](http://vsc-base.org) 
 
-> mono-respo: [source-code](https://github.com/alfnielsen/vsc-base.org)
+> mono-respo: [source-code](https://github.com/alfnielsen/vsc-base)
